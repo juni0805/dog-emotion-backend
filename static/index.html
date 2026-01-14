@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dog Emotion Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>🐶 우리 강쥐가 무슨말을 하고싶을까</h1>
+
+      <div class="row">
+        <video id="video" autoplay playsinline></video>
+
+        <div class="panel">
+          <div class="status">
+            <div class="label">현재 감정</div>
+            <div id="emotion" class="emotion">-</div>
+            <div id="conf" class="conf">0%</div>
+            <div id="warn" class="warn hidden">⚠️ 신뢰도 낮음 (참고용)</div>
+          </div>
+
+          <div class="guide">
+            <h3>보호자 행동지침</h3>
+            <p id="guideText">-</p>
+          </div>
+
+          <div class="controls">
+            <button id="startBtn">웹캠 시작</button>
+            <button id="stopBtn" disabled>중지</button>
+
+            <label class="toggle">
+              <input type="checkbox" id="autoChk" checked />
+              <span>자동 분석 (1초마다)</span>
+            </label>
+          </div>
+
+          <div class="captureBox">
+            <button id="shotBtn">📸 스크린샷</button>
+
+            <div class="captionRow">
+              <input
+                id="captionInput"
+                type="text"
+                placeholder="오늘의 한 줄 기록 (예: 산책 후 신남!)"
+              />
+              <button id="saveBtn" disabled>저장</button>
+            </div>
+
+            <div class="preview">
+              <img id="previewImg" alt="preview" />
+              <div class="previewMeta" id="previewMeta">-</div>
+            </div>
+          </div>
+
+          <h2 class="galleryTitle">📒 우리 강아지 기록</h2>
+          <div id="gallery" class="gallery"></div>
+
+          <div class="hint">
+            ⚠️ 처음 접속 시 카메라 권한을 반드시 허용하세요. (캐시 때문에 바뀐
+            게 안 보이면 Ctrl+Shift+R)
+          </div>
+        </div>
+      </div>
+
+      <!-- 모델 입력용 캡처 캔버스 -->
+      <canvas
+        id="canvas"
+        width="224"
+        height="224"
+        style="display: none"
+      ></canvas>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

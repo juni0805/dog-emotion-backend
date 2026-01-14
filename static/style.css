@@ -1,0 +1,282 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #0b0f19;
+  color: #e7e9ee;
+}
+
+.wrap {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 20px;
+}
+
+video {
+  width: 100%;
+  background: black;
+  border-radius: 14px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.status .label {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.emotion {
+  font-size: 32px;
+  font-weight: 800;
+  margin-top: 6px;
+  transition: color 0.15s ease;
+}
+
+.conf {
+  font-size: 15px;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+.warn {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 160, 0, 0.35);
+  background: rgba(255, 160, 0, 0.12);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ✅ 보호자 행동지침 박스: 내용만큼만 딱 맞게 */
+.guide {
+  margin-top: 10px;
+  padding: 4px 12px 8px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-line;
+
+  /* 🔥 핵심: 과한 높이 제거 */
+  height: auto;
+  min-height: unset;
+  display: block;
+}
+
+/* 🔥 p 기본 여백 때문에 박스가 커 보이는 것 방지 */
+.guide p {
+  margin: 0;
+  padding: 0;
+}
+
+.controls {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toggle {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  align-items: center;
+}
+
+/* ===== 캡처/기록 UI ===== */
+.captureBox {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.captionRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.captionRow input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.2);
+  color: #e7e9ee;
+  outline: none;
+}
+
+.preview {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+.preview img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #000;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: none;
+}
+
+.previewMeta {
+  font-size: 13px;
+  opacity: 0.8;
+  white-space: pre-line;
+}
+
+.galleryTitle {
+  margin-top: 18px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.gallery {
+  margin-top: 10px;
+  display: grid;
+  gap: 12px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.card img {
+  width: 140px;
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #000;
+}
+
+.card .meta {
+  display: grid;
+  gap: 6px;
+}
+
+.card .meta .top {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.card .meta .caption {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.card .meta .actions {
+  display: flex;
+  gap: 8px;
+}
+
+.smallBtn {
+  padding: 7px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* ===== 감정별 컬러 테마 (body에 class 붙임) ===== */
+.emotion-theme.alert .emotion {
+  color: #f7c948;
+}
+.emotion-theme.happy .emotion {
+  color: #4ade80;
+}
+.emotion-theme.angry .emotion {
+  color: #fb7185;
+}
+.emotion-theme.frown .emotion {
+  color: #60a5fa;
+}
+.emotion-theme.relax .emotion {
+  color: #a78bfa;
+}
+
+.emotion-theme.alert .panel {
+  border-color: rgba(247, 201, 72, 0.35);
+}
+.emotion-theme.happy .panel {
+  border-color: rgba(74, 222, 128, 0.35);
+}
+.emotion-theme.angry .panel {
+  border-color: rgba(251, 113, 133, 0.35);
+}
+.emotion-theme.frown .panel {
+  border-color: rgba(96, 165, 250, 0.35);
+}
+.emotion-theme.relax .panel {
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+.emotion-theme.alert .guide {
+  background: rgba(247, 201, 72, 0.08);
+}
+.emotion-theme.happy .guide {
+  background: rgba(74, 222, 128, 0.08);
+}
+.emotion-theme.angry .guide {
+  background: rgba(251, 113, 133, 0.08);
+}
+.emotion-theme.frown .guide {
+  background: rgba(96, 165, 250, 0.08);
+}
+.emotion-theme.relax .guide {
+  background: rgba(167, 139, 250, 0.08);
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 13px;
+  opacity: 0.7;
+}
